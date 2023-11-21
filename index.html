@@ -18,7 +18,7 @@
 
 
 <body>
-
+<div id="top"></div>
 <div class="loader-bg">
    <div class="loader"></div>
 </div>
@@ -36,28 +36,28 @@
              <nav class="header__menu">
                <ul class="header__list">
                  <li>
-                   <a class="header__link" href="#Home">Home</a>
+                   <a class="header__link" href="#top">Home</a>
                  </li>
                  <li>
-                   <a class="header__link" href="#AboutUs">About Us</a>
+                   <a class="header__link" a href="#AboutUs">About Us</a>
                  </li>
                  <li>
-                   <a class="header__link" href="#Portfolio">Portfolio</a>
+                   <a class="header__link" a href="#Project">Portfolio</a>
                  </li>
                  <li>
-                   <a class="header__link" href="#Features">Features</a>
+                   <a class="header__link" a href="#Features">Features</a>
                  </li>
                  <li>
-                   <a class="header__link" href="#Blog">Blog</a>
+                   <a class="header__link" a href="#Blog">Blog</a>
                  </li>
                  <li>
-                   <a class="header__link" href="#Pricing">Pricing</a>
+                   <a class="header__link" a href="#Pricing">Pricing</a>
                  </li>
                  <li>
-                   <a class="header__link" href="#Shortcodes">Shortcodes</a>
+                   <a class="header__link" a href="#Shortcodes">Shortcodes</a>
                  </li>
                  <li>
-                   <a class="header__link" href="#Contact">Contact</a>
+                   <a class="header__link" a href="#Contact">Contact</a>
                  </li>
                </ul>
              </nav>
@@ -150,7 +150,7 @@
       </div>
    </div>
 
-   <div class="browsers">
+   <div class="browsers"><div id="AboutUs"></div>
       <div class="browsers_body">
          <div class="browsers_body-wrapper">
             <h2 class="browsers_body-title">Waxom is Realization of your Ideas.</h2>
@@ -176,7 +176,7 @@
       </div>
    </div>
 
-   <div class="projects">
+   <div class="projects"><div id="Project"></div>
       <div class="container">
          <div class="projects__header wow fadeIn" data-wow-delay="0.2s">
             <h2 class="projects__header-title">Our Latest Projects.</h2>
@@ -294,7 +294,7 @@
       <div class="presentation__content wow fadeIn"  data-wow-delay="0.2s">
          <button class="presentation__content-btn"><img class="presentation__content-img" src="img/video/play.svg" alt="play button"></button>
          <div class="presentation__video">
-            <a class="presentation__video-link" href="https://www.youtube.com/watch?v=v2H4l9RpkwM" data-fancybox="gallery"></a>
+            <a class="presentation__video-link" href="https://www.youtube.com/watch?v=yOW7Eh81Gto" data-fancybox="gallery"></a>
          </div>
          <div class="presentation__content-title">Waxom Video Presentation</div>
          <div class="presentation__content-suptitle">Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius, qui sequitur mutationem consuetudium.</div>
@@ -359,7 +359,7 @@
       </div>
    </div>
 
-   <div class="posts">
+   <div class="posts"><div id="Blog"></div>
       <div class="container">
          <div class="posts__header wow fadeIn" data-wow-delay="0.2s">
             <h2 class="posts__header-title">Recent Posts.</h2>
@@ -467,7 +467,7 @@
       </div>
    </div>
 
-   <footer class="footer">
+   <footer class="footer"><div id="Contact"></div>
       <div class="footer__top">
          <div class="container footer__top-block">
             <div class="footer__top-waxom footer__top--box wow zoomIn" data-wow-delay="0.2s">
@@ -542,6 +542,24 @@
    <script src="source/fancybox/jquery.fancybox.min.js"></script>
    <script src="js/wow.min.js"></script>
    <script src="js/main.js"></script>
+   <script>// Получаем все ссылки в меню
+const menuLinks = document.querySelectorAll('.header__link');
+
+// Обходим каждую ссылку и добавляем обработчик события
+menuLinks.forEach(link => {
+  link.addEventListener('click', event => {
+    event.preventDefault();
+
+    // Получаем значение атрибута href для каждой ссылки
+    const targetId = link.getAttribute('href');
+
+    // Используем smooth scroll для плавного скроллинга к якорю
+    document.querySelector(targetId).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+</script>
 </body>
 </html>
 
